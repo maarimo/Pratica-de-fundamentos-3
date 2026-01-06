@@ -45,6 +45,17 @@ public abstract class Pessoa {
         }
     }
 
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        Pessoa pessoa = (Pessoa) object;
+        return java.util.Objects.equals(id, pessoa.id);
+    }
+
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
+    }
+
     @Override
     public String toString() {
         return "Pessoa{" +
